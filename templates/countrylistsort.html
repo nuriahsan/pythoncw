@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+	<link rel='stylesheet' href='static/style.css'>
+	<style>
+	body{
+    font-family:arial;
+
+}
+img.tiny{
+    width: 20px;
+    border: solid thin grey;	
+}
+img.big {
+    width: 200px;
+    border: solid thin grey;
+    position: absolute;
+    right: 1ex;
+    top: 1ex;
+}
+
+.properties div div{
+	display:inline-block;
+}
+.properties div div:first-child{
+	width:20ex;
+}
+.properties div div:last-child{
+	font-weight: bold;
+}
+a{
+	text-decoration: none;
+}
+
+.nav_button{
+    border: solid gray thin;
+    bottom: auto;
+    width:150px;
+    display:inline-block;
+    }
+
+ ul#sort a:link {
+    background-color: gray;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    list-style-type: none;
+}
+
+
+ul#sort a:hover {
+    background-color: red;
+}
+</style>
+</head>
+	<body>
+		<form>
+		<h1>Listing Page</h1>
+		<h3>You can serach your desired country by clicking the beginning letter of it.</h3>
+		<div id="sorting">
+			<ul id="sort">
+				{% for c in ls %}
+					<a href="/country/Lists/{{c}}"><li>{{c}}</li></a>
+					{% endfor %}
+			</ul>
+			<!-- <a href="/country/Lists/{{'A'}}"><li> A </li></a>
+			<a href="/country/Lists/{{'B'}}"><li> B </li></a>
+
+			<a href="/country/Lists/{{'C'}}"><li> C </li></a>
+
+			<a href="/country/Lists/{{'D'}}"><li>D</li></a>
+
+			<a href="/country/Lists/{{'E'}}"><li>E</li></a>
+
+			<a href="/country/Lists/{{'F'}}"><li>F</li></a>
+
+			<a href="/country/Lists/{{'G'}}"><li>G</li></a>
+			<a href="/country/Lists/{{'H'}}"><li>H</li></a>
+			<a href="/country/Lists/{{'I'}}"><li>I</li></a>
+
+			<a href="/country/Lists/{{'J'}}"><li>J</li></a>
+
+			<a href="/country/Lists/{{'K'}}"><li>K</li></a>
+
+			<a href="/country/Lists/{{'L'}}"><li>L</li></a>
+
+			<a href="/country/Lists/{{'M'}}"><li>M</li></a>
+			<a href="/country/Lists/{{'N'}}"><li>N</li></a>
+			<a href="/country/Lists/{{'O'}}"><li>O</li></a>
+
+			<a href="/country/Lists/{{'P'}}"><li>P</li></a>
+
+			<a href="/country/Lists/{{'Q'}}"><li>Q</li></a>
+
+			<a href="/country/Lists/{{'R'}}"><li>R</li></a>
+
+			<a href="/country/Lists/{{'S'}}"><li>S</li></a>
+			<a href="/country/Lists/{{'T'}}"><li>T</li></a>
+
+			<a href="/country/Lists/{{'U'}}"><li>U</li></a>
+
+			<a href="/country/Lists/{{'V'}}"><li>V</li></a>
+
+			<a href="/country/Lists/{{'W'}}"><li>W</li></a>
+
+			<a href="/country/Lists/{{'X'}}"><li>X</li></a>
+
+			<a href="/country/Lists/{{'Y'}}"><li>Y</li></a>
+			<a href="/country/Lists/{{'Z'}}"><li>Z</li></a> -->
+
+	<div>
+		{% block content %}
+		{% endblock %}
+	</div>
+	</div>
+	</form>
+
+	</body>
+</html>

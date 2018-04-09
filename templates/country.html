@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+	<link rel='stylesheet' href='/static/style.css'>
+	<style>
+	body{
+    font-family:arial;
+	
+}
+img.tiny{
+    width: 20px;
+    border: solid thin grey;	
+}
+img.big {
+    width: 200px;
+    border: solid thin grey;
+    position: absolute;
+    right: 1ex;
+    top: 1ex;
+}
+
+.properties div div{
+	display:inline-block;
+}
+.properties div div:first-child{
+	width:20ex;
+}
+.properties div div:last-child{
+	font-weight: bold;
+}
+a{
+	text-decoration: none;
+}
+
+.nav_button{
+    border:solid gray thin;
+    bottom: auto;
+    }
+</style>
+</head>
+	<body>
+		<h1>{{c['name']}}</h1>
+		<div class='properties'>
+			<div>
+				<div>Capital</div>
+				<div>{{c['capital']}}</div>
+			</div>
+			<div>
+				<div>Continent</div>
+				<div><a href='../continent/{{c.continent}}'>{{c['continent']}}</a></div>
+			</div>
+			<div>
+				<div>Population</div>
+				<div>{{"{:,.0f}".format(c['population'])}}</div>
+			</div>
+			<div>
+				<div>GDP (million $)</div>
+				<div>{{ "{:,.0f}".format(c['gdp']/1000000) }}</div>
+			</div>
+		</div>
+		<img src="/static/flags/{{c['tld']}}.gif" class='big'>
+		<div class='edit-button'>
+		<a href='/editcountryByName/{{c.name}}'>Edit</a>
+		</div>
+		<div> <a href='/delete/{{c.name}}'> Delete </a> </div>
+	</body>
+</html>

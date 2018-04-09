@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<link rel='stylesheet' href='/static/style.css'>
+<style>
+	body{
+    font-family:arial;
+	
+}
+img.tiny{
+    width: 20px;
+    border: solid thin grey;	
+}
+img.big {
+    width: 200px;
+    border: solid thin grey;
+    position: absolute;
+    right: 1ex;
+    top: 1ex;
+}
+
+.properties div div{
+	display:inline-block;
+}
+.properties div div:first-child{
+	width:20ex;
+}
+.properties div div:last-child{
+	font-weight: bold;
+}
+a{
+	text-decoration: none;
+}
+
+.nav_button{
+    border: 16px solid gray thin;
+    bottom: auto;
+    width: 30px;
+    }
+</style>
+</head>
+	<body>
+		<h1>World Factbook</h1>
+		<div>There are {{w|length}} countries in in the world.</div>
+		<ul>
+			{% for c in w %}
+			<li><a href='/countryByName/{{c.name}}'>
+				<img src='/static/flags/{{c["tld"]}}.gif' class='tiny'>
+			 {{c.name}}</a></li>
+			{% endfor %}
+		</ul>
+		<div class='nav_button'>
+			<a href='/begin/{{page_number-page_size}}'>Previous Page</a>
+		</div>
+		<div class='nav_button'>
+			<a href='/begin/{{page_number+page_size}}'>Next Page</a>
+		</div>
+	</body>
+</html>
